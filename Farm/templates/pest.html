@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card w-50">
+    <div class="card w-50">
+        <h3>{{ pesticide.category }}</h3>
+    </div>
+    <div class="card-body">
+    <h5 class="card-title">{{ pesticide.pesticidecost }}</h5>
+    <p class="card-text">{{ pesticide.effective }}</p>
+    <div>
+      {% if current_user.name == "admin" %}
+        <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('update_pesticide', pesticide_id = pesticide.id) }}">Update</a>
+        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      {% endif %}  
+      {% if current_user.name != "admin" %}
+        <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('addpesticide', pesticide_id = pesticide.id) }}">ADD</a>
+      {% endif %}
+    </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Wanna Delete the Pesticide?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <form action="{{ url_for('delete_pesticide', pesticide_id=pesticide.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

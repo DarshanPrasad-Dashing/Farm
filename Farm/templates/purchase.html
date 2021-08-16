@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-5" style="margin-top: 6%; margin-left: 1%;  text-align: center;">
+    <h1>CROPS</h1>
+</div>
+<div class="col-md-15" style="margin-top: 12%; margin-left: 8%; text-align: left;">
+{% for crop in crops %}
+    <div class="card w-50">
+        <div class="card-header">
+            <h3><a class="card-header" href="{{ url_for('crop', crop_id=crop.id ) }}" >{{ crop.cropname }}</a></h3>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Rs-{{ crop.cropcost }}/-</h5>
+        <p class="card-text">soiltype={{ crop.soiltype }}</p>
+        {% if current_user.name != "admin" %}
+        <a href="{{ url_for('crop', crop_id=crop.id ) }}" class="btn btn-success">add to cart</a>
+        {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>
+<hr>
+<div class="col-md-5" style="margin-top: 6%; margin-left: 1%;  text-align: center;">
+    <h1>PESTICIDES</h1>
+</div>
+<div class="col-md-15" style="margin-top: 12%; margin-left: 8%; text-align: left;">
+{% for pesticide in pesticides %}
+    <div class="card w-50">
+        <div class="card-header">
+            <h3><a class="card-header" href="{{ url_for('pesticide', pesticide_id=pesticide.id ) }}" >{{ pesticide.category }}</a></h3>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Rs-{{ pesticide.pesticidecost }}/-</h5>
+        <p class="card-text">effective-on={{ pesticide.effective }}</p>
+        {% if current_user.name != "admin" %}
+        <a href="{{ url_for('pesticide', pesticide_id=pesticide.id ) }}" class="btn btn-success">add to cart</a>
+        {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>
+<hr>
+<div class="col-md-5" style="margin-top: 6%; margin-left: 1%;  text-align: center;">
+<h1>FERTILIZERS</h1>
+</div>
+<div class="col-md-15" style="margin-top: 12%; margin-left: 8%; text-align: left;">
+{% for fertilizer in fertilizers %}
+    <div class="card w-50">
+        <div class="card-header">
+            <h3><a class="card-header" href="{{ url_for('fertilizer', fertilizer_id=fertilizer.id ) }}" >{{ fertilizer.name }}</a></h3>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Rs-{{ fertilizer.cost }}/-</h5>
+        {% if current_user.name != "admin" %}
+        <a href="{{ url_for('fertilizer', fertilizer_id=fertilizer.id ) }}" class="btn btn-success">add to cart</a>
+        {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,9 @@
+
+.container {
+max-width: 960px;
+padding-left: 250px;
+padding-top: 150px;  
+float: left;  
+}
+
+.lh-condensed { line-height: 1.25; }

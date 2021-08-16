@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-xl">
+    <div class="row">
+        <div class="col-md-8 order-md-1 ">        
+            <form class="form-signin" method="POST" action="">
+                {{ form.hidden_tag() }}
+                <h3 class="mb-3">Update/Delete-fertilizer</h3>
+                <hr class="mb-4">
+            
+            <div class="form-group">
+                {{ form.fertilizername.label(class="form-control-label") }}
+                {% if form.fertilizername.errors %}
+                    {{ form.fertilizername(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.fertilizername.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.fertilizername(class="form-control form-control-md") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.fertilizercost.label(class="form-control-label") }}
+                {% if form.fertilizercost.errors %}
+                    {{ form.fertilizercost(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.fertilizercost.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.fertilizercost(class="form-control form-control-md") }}
+                {% endif %}
+            </div>
+            <hr class="mb-4">
+            <div class="form-group">
+                {{ form.submit(class="btn btn-md btn-success") }}
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

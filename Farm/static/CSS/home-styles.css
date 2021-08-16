@@ -1,0 +1,46 @@
+body {
+   min-height: 75rem;
+}
+ul li{
+   position:relative;
+   left: 150%;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+nav{
+   margin: 0px;
+   padding: 0px;
+
+}
+img{
+   max-width:430% ;
+   padding-left: 530px;
+   margin-top: -280px;
+   
+}
+h2{
+   float: left;
+   float: bottom;
+   font-size: 50px;
+   font-family: "Trirong", serif;
+}
+h1{
+   float: left;
+   font-family: "Trirong", serif;
+   font-size: 50px;
+   margin-top: -50px;
+}
+p.thicker{
+   font-weight: 900;
+}
+
+p.thicker{
+   font-weight: 900;
+}
+
+p{
+  float: left;
+  font-family: "Audiowide", sans-serif;
+  font-size:large;
+  text-align: left;
+}

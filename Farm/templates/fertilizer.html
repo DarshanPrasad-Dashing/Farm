@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card w-50">
+        <div class="card-header">
+        <h3>{{ fertilizer.name }}</h3>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Rs-{{ fertilizer.cost }}/-</h5>
+        <div>
+            {% if current_user.name == "admin" %}
+                <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('update_fertilizer', fertilizer_id=fertilizer.id) }}">Update</a>
+            {% endif %}
+            {% if current_user.name != "admin" %}  
+                <a class="btn btn-success btn-sm mt-1 mb-1" href="{{ url_for('addfertilizer', fertilizer_id=fertilizer.id) }}">ADD</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

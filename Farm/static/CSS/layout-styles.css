@@ -1,0 +1,25 @@
+body {
+  min-height: 75rem;
+}
+ul li{
+  position: fixed;
+  right: -90px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+nav{
+  margin: 0px;
+  padding: 0px;
+
+}
+h2{
+ float: left;
+ font-family: 'Fredoka One', cursive;
+ font-size: 50px;
+}
+h1{
+ float: left;
+ font-family: "Trirong", serif;
+ font-size: 50px;
+ margin-top: -50px;
+}

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-xl">
+    <div class="row">
+        <div class="col-md-8 order-md-1 ">        
+            <form class="form-signin" method="POST" action="">
+                {{ form1.hidden_tag() }}
+                <h3 class="mb-3">ADD-Crop/SEED</h3>
+                <hr class="mb-4">
+            
+            <div class="form-group">
+                {{ form1.cropname.label(class="form-control-label") }}
+                {% if form1.cropname.errors %}
+                    {{ form1.cropname(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form1.cropname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form1.cropname(class="form-control form-control-md") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form1.cropcost.label(class="form-control-label") }}
+                {% if form1.cropcost.errors %}
+                    {{ form1.cropcost(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form1.cropcost.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form1.cropcost(class="form-control form-control-md") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form1.soiltype.label(class="form-control-label") }}
+                {% if form1.soiltype.errors %}
+                    {{ form1.soiltype(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form1.soiltype.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form1.soiltype(class="form-control form1-control-md") }}
+                {% endif %}
+            </div>
+            <hr class="mb-4">
+            <div class="form-group">
+                {{ form1.submit(class="btn btn-md btn-success") }}
+            </div>
+            </form>
+        <hr>
+            <form class="form-signin" method="POST" action="">
+                {{ form2.hidden_tag() }}
+                <h3 class="mb-3">ADD Pesticide</h3>
+                <hr class="mb-4">
+            
+                <div class="form-group">
+                    {{ form2.category.label(class="form-control-label") }}
+                
+                    {% if form2.category.errors %}
+                        {{ form2.category(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form2.category.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form2.category(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form2.pesticidecost.label(class="form-control-label") }}
+                
+                    {% if form2.pesticidecost.errors %}
+                        {{ form2.pesticidecost(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form2.pesticidecost.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form2.pesticidecost(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form2.effective.label(class="form-control-label") }}
+                
+                    {% if form2.effective.errors %}
+                        {{ form2.effective(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form2.effective.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form2.effective(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            <hr class="mb-4">
+            <div class="form-group">
+                {{ form2.submit(class="btn btn-md btn-success") }}
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
